@@ -1,7 +1,9 @@
-﻿namespace Application.Dtos
+﻿using Domain.Entities;
+
+namespace Application.Dtos
 {
-    public abstract class DtoBase
+    public abstract class DtoBase: EntityBaseGuid
     {
-        public Guid Id { get; set; }
+
     }
 }

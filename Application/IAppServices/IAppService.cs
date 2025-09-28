@@ -3,9 +3,8 @@ using Domain.Entities;
 
 namespace Application.IAppServices
 {
-    public interface IAppService<TEntityDto, TEntity, TKey> 
+    public interface IAppService<TEntityDto, TKey> 
         where TEntityDto : DtoBase
-        where TEntity : Entity
     {
         TEntityDto Get(TKey id, List<string>? includes = null);
         Task<bool> AddAsync(TEntityDto item, CancellationToken cancellationToken = default);
