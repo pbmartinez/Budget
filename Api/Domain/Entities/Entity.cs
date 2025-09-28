@@ -1,6 +1,6 @@
 ﻿namespace Domain.Entities
 {
-    internal class Entity : BaseEntity<Guid>
+    public class Entity : BaseEntity<Guid>
     {
         public override bool IsTransient() => Id == Guid.Empty;
 
