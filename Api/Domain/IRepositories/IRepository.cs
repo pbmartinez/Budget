@@ -11,5 +11,7 @@ namespace Domain.IRepositories
         Task UpdateAsync(TEntity item, CancellationToken cancellationToken = default);
         Task DeleteAsync(TEntity item, CancellationToken cancellationToken = default);
 
+        Task<int> CommitChangesAsync();
+
     }
 }

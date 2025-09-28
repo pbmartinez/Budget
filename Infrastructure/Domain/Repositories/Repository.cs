@@ -46,5 +46,10 @@ namespace Infrastructure.Domain.Repositories
             await Task.CompletedTask;
         }
 
+        public async Task<int> CommitChangesAsync()
+        {
+            return await DbContext.SaveChangesAsync();
+        }
+
     }
 }
