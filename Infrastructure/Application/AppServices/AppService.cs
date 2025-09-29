@@ -6,7 +6,7 @@ using Domain.IRepositories;
 
 namespace Infrastructure.Application.AppServices
 {
-    internal class AppService<TDtoBase, TEntity, TKey> : IAppService<TDtoBase, TKey>
+    public class AppService<TDtoBase, TEntity, TKey> : IAppService<TDtoBase, TKey>
            where TDtoBase : DtoBase
            where TEntity : Entity
     {
