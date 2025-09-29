@@ -5,7 +5,7 @@ namespace Domain.Entities
     public abstract class BaseEntity<TKey>
     {
         [Key]
-        public TKey Id { get; set; }
+        public required TKey Id { get; set; }
 
         public abstract bool IsTransient();
 

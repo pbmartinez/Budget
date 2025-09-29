@@ -5,7 +5,7 @@ namespace Domain.Entities
     public class Budget : Entity
     {
         [Required]
-        public string Name { get; set; }
+        public required string Name { get; set; }
 
         [Required]
         [Range(0, double.MaxValue, ErrorMessage = "Amount must be a positive value.")]

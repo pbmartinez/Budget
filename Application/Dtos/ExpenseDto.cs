@@ -5,7 +5,7 @@ namespace Application.Dtos
     public class ExpenseDto :DtoBase
     {
         [Required]
-        public string Name { get; set; }
+        public required string Name { get; set; }
 
         [Required]
         [Range(0, double.MaxValue, ErrorMessage = "Amount must be a positive value.")]
@@ -15,6 +15,6 @@ namespace Application.Dtos
         public DateOnly Date { get; set; }
 
         public Guid BudgetId { get; set; }
-        public BudgetDto Budget { get; set; }
+        public BudgetDto? Budget { get; set; }
     }
 }

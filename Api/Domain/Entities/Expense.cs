@@ -5,7 +5,7 @@ namespace Domain.Entities
     public class Expense : Entity
     {
         [Required]
-        public string Name { get; set; }
+        public required string Name { get; set; }
 
         [Required]
         [Range(0, double.MaxValue, ErrorMessage = "Amount must be a positive value.")]
@@ -15,6 +15,6 @@ namespace Domain.Entities
         public DateOnly Date { get; set; }
 
         public Guid BudgetId { get; set; }
-        public Budget Budget { get; set; }
+        public Budget? Budget { get; set; }
     }
 }
