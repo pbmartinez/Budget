@@ -8,7 +8,7 @@ namespace Infrastructure.Application.AppServices
 {
     public class BudgetAppService : AppService<BudgetDto, Budget, Guid>, IBudgetAppService
     {
-        public BudgetAppService(IRepository<Budget, Guid> repository, IMapper mapper) : base(repository, mapper)
+        public BudgetAppService(IBudgetRepository repository, IMapper mapper) : base(repository, mapper)
         {
         }
     }
