@@ -1,12 +1,9 @@
 using Application.IAppServices;
-using AutoMapper;
 using Domain.IRepositories;
 using Infrastructure.Application.AppServices;
 using Infrastructure.Domain.Repositories;
 using Infrastructure.Domain.UnitOfWork;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-using System.Reflection; // Ensure this namespace is included for AutoMapper extensions
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,9 +20,12 @@ builder.Services.AddScoped<IExpenseRepository, ExpenseRepository>();
 // Fix: Replace 'AddAutoMapperWithProfiles' with 'AddAutoMapper' and configure profiles if needed
 builder.Services.AddAutoMapper(cfg => { cfg.AddMaps(typeof(Program)); });
 
-
 builder.Services.AddControllers();
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
+
+// Add Swagger services
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
 builder.Services.AddOpenApi();
 
 var app = builder.Build();
@@ -33,6 +33,9 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
+    // Enable Swagger UI in development
+    app.UseSwagger();
+    app.UseSwaggerUI();
     app.MapOpenApi();
 }
 
