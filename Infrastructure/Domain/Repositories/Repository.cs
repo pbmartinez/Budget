@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Domain.Repositories
 {
-    internal class Repository<TEntity> : IRepository<TEntity, Guid> where TEntity : Entity
+    public class Repository<TEntity> : IRepository<TEntity, Guid> where TEntity : Entity
     {
         private AppDbContext UnitOfWork { get; set; }
 
