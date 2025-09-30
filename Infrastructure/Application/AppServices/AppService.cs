@@ -29,9 +29,9 @@ namespace Infrastructure.Application.AppServices
             return _mapper.Map<TDtoBase>(_repository.Get(id, includes));
         }
 
-        public Task<List<TDtoBase>> GetAllAsync(List<string>? includes = null, Dictionary<string, bool>? order = null, CancellationToken cancellationToken = default)
+        public async Task<List<TDtoBase>> GetAllAsync(List<string>? includes = null, Dictionary<string, bool>? order = null, CancellationToken cancellationToken = default)
         {
-            return _mapper.Map<Task<List<TDtoBase>>>(_repository.GetAllAsync(includes, order, cancellationToken));
+            return _mapper.Map<List<TDtoBase>>(await _repository.GetAllAsync(includes, order, cancellationToken));
         }
 
         public async Task<TDtoBase> GetAsync(TKey id, List<string>? includes = null, CancellationToken cancellationToken = default)
